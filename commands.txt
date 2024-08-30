@@ -1,0 +1,1129 @@
+Training
+
+#Obama1
+python train_feature2face_model.py --name Obama1_0 --dataset_names 'Obama1' --train_dataset_names 'Obama1' --dataroot ./data/Obama1/ --isH5 0
+
+#Obama custom made: https://drive.google.com/file/d/1HM5AxtOspUlPDA9eKrBpR5grv6j0vNuA/view?usp=sharing
+python train_feature2face_model.py \
+            --name Obama_custom_0 \
+            --dataset_names 'Obama' \
+            --train_dataset_names 'Obama' \
+            --dataroot /data/amahapat/LiveSpeechPortraits/data/Obama/ \
+            --isH5 0 \
+            --checkpoints_dir /data/amahapat/LiveSpeechPortraits/checkpoints \
+            --dataset_mode custom
+
+#Output custom made: https://drive.google.com/file/d/1uAQkL9qf_K47zTE1IierNBmFuuv9fzjc/view?usp=sharing
+python train_feature2face_model.py \
+            --name Output_custom_0 \
+            --dataset_names 'Output' \
+            --train_dataset_names 'Output' \
+            --dataroot ./data/Output/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom
+
+#Output custom made: https://drive.google.com/file/d/1uAQkL9qf_K47zTE1IierNBmFuuv9fzjc/view?usp=sharing with wandb
+python train_feature2face_model.py \
+            --name Output_custom_1 \
+            --dataset_names 'Output' \
+            --train_dataset_names 'Output' \
+            --dataroot ./data/Output/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --use_wandb \
+            --wandb_project_name proj-face-video
+
+#Output custom made: https://drive.google.com/file/d/1uAQkL9qf_K47zTE1IierNBmFuuv9fzjc/view?usp=sharing with wandb, batchsize 32
+python train_feature2face_model.py \
+            --name output-custom-2 \
+            --dataset_names 'Output' \
+            --train_dataset_names 'Output' \
+            --dataroot ./data/Output/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --use_wandb \
+            --wandb_project_name proj-face-video
+
+#Output custom made: https://drive.google.com/file/d/1uAQkL9qf_K47zTE1IierNBmFuuv9fzjc/view?usp=sharing with wandb cond = prev 2 and next 2 feature maps
+python train_feature2face_model.py \
+            --name output-custom-2prev-2next \
+            --dataset_names 'Output' \
+            --train_dataset_names 'Output' \
+            --dataroot ./data/Output/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --use_wandb \
+            --gpu_ids 1 \
+            --wandb_project_name proj-face-video
+
+#Output custom made: https://drive.google.com/u/0/uc?id=1UU1yT44UkreCVZqGUJVm91aKnDrIF9Pe&export=download with wandb cond = prev 2 and next 2 feature maps
+python train_feature2face_model.py \
+            --name luoxiang-custom-2prev-2next \
+            --dataset_names 'LuoXiang' \
+            --train_dataset_names 'LuoXiang' \
+            --dataroot ./data/LuoXiang/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --use_wandb \
+            --gpu_ids 0 \
+            --wandb_project_name proj-face-video
+
+#Output custom made: https://drive.google.com/file/d/1uAQkL9qf_K47zTE1IierNBmFuuv9fzjc/view?usp=sharing with wandb, n_prev_frames = 4
+python train_feature2face_model.py \
+            --name output-customnframe-0 \
+            --dataset_names 'Output' \
+            --train_dataset_names 'Output' \
+            --dataroot ./data/Output/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode customnframe \
+            --use_wandb \
+            --wandb_project_name proj-face-video \
+            --gpu_ids 0 \
+            --n_prev_frames 4
+
+#Output custom made: https://drive.google.com/file/d/1uAQkL9qf_K47zTE1IierNBmFuuv9fzjc/view?usp=sharing with wandb, n_prev_frames = 2 (teacher + student forcing)
+python train_feature2face_model.py \
+            --name output-customnframe-2-ts \
+            --dataset_names 'Output' \
+            --train_dataset_names 'Output' \
+            --dataroot ./data/Output/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode customnframe \
+            --use_wandb \
+            --wandb_project_name proj-face-video \
+            --gpu_ids 0 \
+            --n_prev_frames 2 \
+            --n_epochs_student 30
+
+#LuoXiang custom made: https://drive.google.com/u/0/uc?id=1UU1yT44UkreCVZqGUJVm91aKnDrIF9Pe&export=download with wandb
+python train_feature2face_model.py \
+            --name luoxiang-custom-0 \
+            --dataset_names 'LuoXiang' \
+            --train_dataset_names 'LuoXiang' \
+            --dataroot ./data/LuoXiang/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --use_wandb \
+            --wandb_project_name proj-face-video
+
+#Jackey custom made with wandb cond = prev 2 and next 2 feature maps
+python train_feature2face_model.py \
+            --name jackey-custom-2prev-2next \
+            --dataset_names 'Jackey' \
+            --train_dataset_names 'Jackey' \
+            --dataroot ./data/Jackey/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --use_wandb \
+            --gpu_ids 0 \
+            --wandb_project_name proj-face-video
+
+#luoxiang_16min custom made with wandb cond = prev 2 and next 2 feature maps
+python train_feature2face_model.py \
+            --name luoxiang_16min-custom-2prev-2next \
+            --dataset_names 'luoxiang_16min' \
+            --train_dataset_names 'luoxiang_16min' \
+            --dataroot ./data/luoxiang_16min/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --use_wandb \
+            --gpu_ids 1 \
+            --wandb_project_name proj-face-video
+
+#luoxiang_16min shoulder custom made with wandb cond = prev 2 and next 2 feature maps
+python train_feature2face_model.py \
+            --name luoxiang_16min-shoulder-custom-2prev-2next \
+            --dataset_names 'luoxiang_16min' \
+            --train_dataset_names 'luoxiang_16min' \
+            --dataroot ./data/luoxiang_16min/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --use_wandb \
+            --gpu_ids 1 \
+            --wandb_project_name proj-face-video
+
+#kanghui shoulder custom made with wandb cond = prev 2 and next 2 feature maps
+python train_feature2face_model.py \
+            --name kanghui-shoulder-custom-2prev-2next \
+            --dataset_names 'kanghui' \
+            --train_dataset_names 'kanghui' \
+            --dataroot ./data/kanghui/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --use_wandb \
+            --gpu_ids 1 \
+            --wandb_project_name proj-face-video
+
+#kanghui shoulder custom made with wandb cond = prev 2 and next 2 feature maps
+python train_feature2face_model.py \
+            --name kanghui-shoulder-custom-2prev-2next-new1 \
+            --dataset_names 'kanghui' \
+            --train_dataset_names 'kanghui' \
+            --dataroot ./data/kanghui/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --gpu_ids 0 \
+            --wandb_project_name proj-face-video
+
+#full_body_1 shoulder custom made with wandb cond = prev 2 and next 2 feature maps
+python train_feature2face_model.py \
+            --name full-body-1-custom-2prev-2next \
+            --dataset_names 'full_body_1' \
+            --train_dataset_names 'full_body_1' \
+            --dataroot ./data/full_body_1/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custombody \
+            --gpu_ids 0 \
+            --use_wandb \
+            --wandb_project_name proj-face-video
+
+#full_body_2 shoulder custom made with wandb cond = prev 2 and next 2 feature maps
+python train_feature2face_model.py \
+            --name full-body-2-custom-2prev-2next \
+            --dataset_names 'full_body_2' \
+            --train_dataset_names 'full_body_2' \
+            --dataroot ./data/full_body_2/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custombody \
+            --gpu_ids 0 \
+            --use_wandb \
+            --wandb_project_name proj-face-video 
+
+#kanghui shoulder custom made with wandb cond = prev 2 and next 2 feature maps
+python train_feature2face_model.py \
+            --name kanghui-shoulder-custom-2prev-2next-new2 \
+            --dataset_names 'kanghui' \
+            --train_dataset_names 'kanghui' \
+            --dataroot ./data/kanghui/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --gpu_ids 0 \
+            --wandb_project_name proj-face-video
+
+#C0209 full body ViTPose custom made with wandb cond = prev 2 and next 2 feature maps
+python train_feature2face_model.py \
+            --name C0209-custom-2prev-2next-ViTPose \
+            --dataset_names 'C0209_cropped' \
+            --train_dataset_names 'C0209_cropped' \
+            --dataroot ./data/C0209_cropped/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custombody \
+            --gpu_ids 0 \
+            --use_wandb \
+            --wandb_project_name proj-face-video 
+
+#C0209 full body OpenPose custom made with wandb cond = prev 2 and next 2 feature maps
+python train_feature2face_model.py \
+            --name C0209-custom-2prev-2next-OpenPose \
+            --dataset_names 'C0209_cropped' \
+            --train_dataset_names 'C0209_cropped' \
+            --dataroot ./data/C0209_cropped/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custombody \
+            --gpu_ids 0 \
+            --use_wandb \
+            --wandb_project_name proj-face-video 
+
+#kanghui shoulder custom made with wandb cond = prev 2 and next 2 feature maps
+python train_feature2face_model.py \
+            --name kanghui-shoulder-custom-2prev-2next-baseline-1 \
+            --dataset_names 'kanghui' \
+            --train_dataset_names 'kanghui' \
+            --dataroot ./data/kanghui/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --gpu_ids 0
+
+#kanghui nerf (rgb-face+depth) custom made with wandb cond = prev 2 and next 2 nerf (rgb-face+depth)
+python train_feature2face_model.py \
+            --name kanghui-shoulder-custom-2prev-2next-nerf-face \
+            --dataset_names 'kanghui' \
+            --train_dataset_names 'kanghui' \
+            --dataroot ./data/kanghui/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jimmy upper body nerf (rgb-face+depth) custom made with wandb cond = prev 2 and next 2 nerf (rgb-upper-body+depth)
+python train_feature2face_model.py \
+            --name jimmy-upper-custom-2prev-2next-nerf-face \
+            --dataset_names 'jimmy_upper' \
+            --train_dataset_names 'jimmy_upper' \
+            --dataroot ./data/jimmy_upper/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#pingan-upper1 nerf (rgb-face+depth) custom made with wandb cond = prev 2 and next 2 nerf (rgb-upper-body+depth)
+python train_feature2face_model.py \
+            --name pingan-upper1-custom-2prev-2next-nerf-face \
+            --dataset_names 'pingan_upper1' \
+            --train_dataset_names 'pingan_upper1' \
+            --dataroot ./data/pingan_upper1/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#pingan-upper1 nerf (rgb-face+depth) custom made with wandb cond = prev 2 and next 2 nerf (rgb-upper-body+depth), no BG
+python train_feature2face_model.py \
+            --name pingan-upper1-nobg-custom-2prev-2next-nerf-face \
+            --dataset_names 'pingan_upper1' \
+            --train_dataset_names 'pingan_upper1' \
+            --dataroot ./data/pingan_upper1/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#pingan-upper1 nerf (rgb-face+depth+mesh) custom made with wandb cond = prev 2 and next 2 nerf (rgb-upper-body+depth+mesh)
+python train_feature2face_model.py \
+            --name pingan-upper1-mesh-custom-2prev-2next-nerf-face \
+            --dataset_names 'pingan_upper1' \
+            --train_dataset_names 'pingan_upper1' \
+            --dataroot ./data/pingan_upper1/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#pingan-upper1 nerf (rgb-face+depth+mesh) custom made with wandb cond = prev 2 and next 2 nerf (rgb-upper-body+depth+mesh), no BG
+python train_feature2face_model.py \
+            --name pingan-upper1-mesh-nobg-custom-2prev-2next-nerf-face \
+            --dataset_names 'pingan_upper1' \
+            --train_dataset_names 'pingan_upper1' \
+            --dataroot ./data/pingan_upper1/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper-hands (depth+mesh) custom made with wandb cond = prev 2 and next 2 nerf (depth+mesh), no BG
+CUDA_VISIBLE_DEVICES=1 python train_feature2face_model.py \
+            --name jhon-oliver-upper-hands-mesh-depth-nobg-custom-2prev-2next-2 \
+            --dataset_names 'johnoliver_hands_2100' \
+            --train_dataset_names 'johnoliver_hands_2100' \
+            --dataroot ./data/johnoliver_hands_2100 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (depth+mesh) custom made with wandb cond = prev 2 and next 2 nerf (depth+mesh), no BG
+CUDA_VISIBLE_DEVICES=2 python train_feature2face_model.py \
+            --name jhon-oliver-upper-mesh-depth-nobg-custom-2prev-2next-2 \
+            --dataset_names 'johnoliver_upper_2100' \
+            --train_dataset_names 'johnoliver_upper_2100' \
+            --dataroot ./data/johnoliver_upper_2100 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper-hands (vertex-texture+mesh) custom made with wandb cond = prev 2 and next 2 nerf (depth+mesh), no BG
+CUDA_VISIBLE_DEVICES=1 python train_feature2face_model.py \
+            --name jhon-oliver-upper-hands-mesh-vertex_textures-nobg-custom-2prev-2next-2 \
+            --dataset_names 'johnoliver_hands_2100' \
+            --train_dataset_names 'johnoliver_hands_2100' \
+            --dataroot ./data/johnoliver_hands_2100 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (vertex-texture+mesh) custom made with wandb cond = prev 2 and next 2 nerf (depth+mesh), no BG
+CUDA_VISIBLE_DEVICES=2 python train_feature2face_model.py \
+            --name jhon-oliver-upper-mesh-vertex_textures-nobg-custom-2prev-2next-2 \
+            --dataset_names 'johnoliver_upper_2100' \
+            --train_dataset_names 'johnoliver_upper_2100' \
+            --dataroot ./data/johnoliver_upper_2100 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper-hands (uv-maps+mesh) custom made with wandb cond = prev 2 and next 2 nerf (depth+mesh), no BG
+CUDA_VISIBLE_DEVICES=3 python train_feature2face_model.py \
+            --name jhon-oliver-upper-hands-mesh-uv_maps-nobg-custom-2prev-2next-2 \
+            --dataset_names 'johnoliver_hands_2100' \
+            --train_dataset_names 'johnoliver_hands_2100' \
+            --dataroot ./data/johnoliver_hands_2100 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (uv-maps) custom made with wandb cond = prev 2 and next 2 nerf (mesh), no BG
+CUDA_VISIBLE_DEVICES=2 python train_feature2face_model.py \
+            --name john-oliver-mesh-uv \
+            --dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --train_dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --dataroot ./data/john-oliver-SHOW1/JO_SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (uv-maps) custom made with wandb cond = prev 2 and next 2 nerf (mesh), no BG
+CUDA_VISIBLE_DEVICES=1 python train_feature2face_model.py \
+            --name john-oliver-mesh-uv-depth-normal \
+            --dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --train_dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --dataroot ./data/john-oliver-SHOW1/JO_SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (uv-maps) custom made with wandb cond = prev 2 and next 2 nerf (mesh), BG
+CUDA_VISIBLE_DEVICES=2 python train_feature2face_model.py \
+            --name john-oliver-mesh-uv-bg \
+            --dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --train_dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --dataroot ./data/john-oliver-SHOW1/JO_SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (untextured) custom made with wandb cond = prev 2 and next 2 nerf (mesh), no BG
+CUDA_VISIBLE_DEVICES=4 python train_feature2face_model.py \
+            --name john-oliver-mesh-no-depth-normal \
+            --dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --train_dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --dataroot ./data/john-oliver-SHOW1/JO_SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (untextured) custom made with wandb cond = prev 2 and next 2 nerf (mesh), BG
+CUDA_VISIBLE_DEVICES=3 python train_feature2face_model.py \
+            --name john-oliver-mesh-no-depth-normal-bg \
+            --dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --train_dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --dataroot ./data/john-oliver-SHOW1/JO_SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (untextured) custom made with wandb no cond (mesh), BG
+CUDA_VISIBLE_DEVICES=1 python train_feature2face_model.py \
+            --name john-oliver-mesh-no-depth-normal-bg-no-cond \
+            --dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --train_dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --dataroot ./data/john-oliver-SHOW1/JO_SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# identity (untextured) custom made with wandb cond = prev 2 and next 2 nerf (mesh), BG
+CUDA_VISIBLE_DEVICES=2 python train_feature2face_model.py \
+            --name seth-mesh-no-depth-normal-bg \
+            --dataset_names 'seth-SHOW1' \
+            --train_dataset_names 'seth-SHOW1' \
+            --dataroot ./data/seth-SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+# identity (textured) custom made with wandb cond = prev 2 and next 2 nerf (mesh), BG
+CUDA_VISIBLE_DEVICES=0 python train_feature2face_model.py \
+            --name seth-mesh-uv-bg \
+            --dataset_names 'seth-SHOW1' \
+            --train_dataset_names 'seth-SHOW1' \
+            --dataroot ./data/seth-SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+# identity (textured) custom made with wandb cond = prev 2 and next 2 nerf (mesh), BG
+CUDA_VISIBLE_DEVICES=5 python train_feature2face_model.py \
+            --name seth-mesh-uv-depth-normal-bg \
+            --dataset_names 'seth-SHOW1' \
+            --train_dataset_names 'seth-SHOW1' \
+            --dataroot ./data/seth-SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+# identity (textured) custom made with wandb no cond (mesh), BG
+CUDA_VISIBLE_DEVICES=2 python train_feature2face_model.py \
+            --name seth-mesh-uv-depth-normal-bg-no-cond-2 \
+            --dataset_names 'seth-SHOW1' \
+            --train_dataset_names 'seth-SHOW1' \
+            --dataroot ./data/seth-SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+# baseline custom made with wandb cond = prev 2 and next 2 nerf (keypoint), BG
+CUDA_VISIBLE_DEVICES=3 python train_feature2face_model.py \
+            --name john-oliver-baseline \
+            --dataset_names './data/john-oliver-SHOW1/JO_SHOW1' \
+            --train_dataset_names './data/john-oliver-SHOW1/JO_SHOW1' \
+            --dataroot ./data/john-oliver-SHOW1/JO_SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --gpu_ids 0
+
+# test custom3d, previous-next, textured-meshes, depth-normal, no l1 loss
+CUDA_VISIBLE_DEVICES=1 python train_feature2face_model.py \
+            --name john-oliver--prev_next-textured-depth_normal-no_l1_loss \
+            --dataset_names '/grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1' \
+            --train_dataset_names '/grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1' \
+            --dataroot /grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --no_l1_loss \
+            --gpu_ids 0
+
+# test custom3d, previous-next, textured-meshes, depth-normal, no GAN
+CUDA_VISIBLE_DEVICES=2 python train_feature2face_model.py \
+            --name john-oliver--prev_next-textured-depth_normal-no_gan_loss \
+            --dataset_names '/grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1' \
+            --train_dataset_names '/grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1' \
+            --dataroot /grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --no_gan_loss \
+            --gpu_ids 0
+
+# new ablation custom3d, previous-next, untextured-meshes, input-image
+CUDA_VISIBLE_DEVICES=3 python train_feature2face_model.py \
+            --name john-oliver--prev_next-untextured-image \
+            --dataset_names '/grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1' \
+            --train_dataset_names '/grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1' \
+            --dataroot /grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1 \
+            --isH5 0 \
+            --dataset_mode custom3d \
+            --gpu_ids 0 \
+            --batch_size 8 \
+            --checkpoints_dir /compute/grogu-1-29/amahapat/LiveSpeechPortraits/checkpoints/
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Testing
+
+#Obama1 (on paper data)
+python test_feature2face_model.py \
+            --name Obama1 \
+            --dataset_names 'Obama1' \
+            --test_dataset_names 'Obama1' \
+            --dataroot ./data/Obama1/ \
+            --isH5 0 \
+            --checkpoints_dir /data/amahapat/LiveSpeechPortraits/checkpoints
+
+#Obama1 (on our data https://drive.google.com/file/d/1HM5AxtOspUlPDA9eKrBpR5grv6j0vNuA/view?usp=sharing)
+python test_feature2face_model.py \
+            --name Obama1 \
+            --dataset_names 'Obama' \
+            --test_dataset_names 'Obama' \
+            --dataroot /data/amahapat/LiveSpeechPortraits/data/Obama/ \
+            --isH5 0 \
+            --checkpoints_dir /data/amahapat/LiveSpeechPortraits/checkpoints \
+            --dataset_mode custom \
+            --results_dir /data/amahapat/LiveSpeechPortraits/results
+
+#Obama custom made: https://drive.google.com/file/d/1HM5AxtOspUlPDA9eKrBpR5grv6j0vNuA/view?usp=sharing
+python test_feature2face_model.py \
+            --name Obama_custom_0 \
+            --dataset_names 'Obama' \
+            --test_dataset_names 'Obama' \
+            --dataroot /data/amahapat/LiveSpeechPortraits/data/Obama/ \
+            --isH5 0 \
+            --checkpoints_dir /data/amahapat/LiveSpeechPortraits/checkpoints \
+            --dataset_mode custom \
+            --results_dir /data/amahapat/LiveSpeechPortraits/results
+
+#Output custom made: https://drive.google.com/file/d/1uAQkL9qf_K47zTE1IierNBmFuuv9fzjc/view?usp=sharing
+python test_feature2face_model.py \
+            --name Output_custom_0 \
+            --dataset_names 'Output' \
+            --test_dataset_names 'Output' \
+            --dataroot ./data/Output/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --results_dir ./results
+
+#Output custom made: https://drive.google.com/file/d/1uAQkL9qf_K47zTE1IierNBmFuuv9fzjc/view?usp=sharing wandb
+python test_feature2face_model.py \
+            --name Output_custom_1 \
+            --dataset_names 'Output' \
+            --test_dataset_names 'Output' \
+            --dataroot ./data/Output/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --results_dir ./results
+
+#Output custom made: https://drive.google.com/file/d/1uAQkL9qf_K47zTE1IierNBmFuuv9fzjc/view?usp=sharing wandb
+python test_feature2face_model.py \
+            --name output-custom-2 \
+            --dataset_names 'Output' \
+            --test_dataset_names 'Output' \
+            --dataroot ./data/Output/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --results_dir ./results
+
+#Output custom made: https://drive.google.com/file/d/1uAQkL9qf_K47zTE1IierNBmFuuv9fzjc/view?usp=sharing with wandb cond = prev 2 and next 2 feature maps
+python test_feature2face_model.py \
+            --name output-custom-2prev-2next \
+            --dataset_names 'Output' \
+            --test_dataset_names 'Output' \
+            --dataroot ./data/Output/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --results_dir ./results
+
+#Output custom made: https://drive.google.com/file/d/1uAQkL9qf_K47zTE1IierNBmFuuv9fzjc/view?usp=sharing wandb
+python test_feature2face_model.py \
+            --name luoxiang-custom-2prev-2next \
+            --dataset_names 'LuoXiang' \
+            --test_dataset_names 'LuoXiang' \
+            --dataroot ./data/LuoXiang/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --results_dir ./results
+
+#Output custom made: https://drive.google.com/file/d/1uAQkL9qf_K47zTE1IierNBmFuuv9fzjc/view?usp=sharing wandb, n_prev_frames = 4
+python test_feature2face_model.py \
+            --name output-customnframe-0 \
+            --dataset_names 'Output' \
+            --test_dataset_names 'Output' \
+            --dataroot ./data/Output/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --results_dir ./results \
+            --n_prev_frames 4 \
+            --single_name Output_custom_1
+
+#Output custom made: https://drive.google.com/file/d/1uAQkL9qf_K47zTE1IierNBmFuuv9fzjc/view?usp=sharing wandb, n_prev_frames = 2 (student + teacher)
+python test_feature2face_model.py \
+            --name output-customnframe-2-ts \
+            --dataset_names 'Output' \
+            --test_dataset_names 'Output' \
+            --dataroot ./data/Output/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --results_dir ./results \
+            --n_prev_frames 2 \
+            --single_name Output_custom_1
+
+#LuoXiang custom made: https://drive.google.com/u/0/uc?id=1UU1yT44UkreCVZqGUJVm91aKnDrIF9Pe&export=download with wandb
+python test_feature2face_model.py \
+            --name luoxiang-custom-1 \
+            --dataset_names 'LuoXiang' \
+            --test_dataset_names 'LuoXiang' \
+            --dataroot ./data/LuoXiang/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --results_dir ./results
+
+#luoxiang_16min custom made with wandb cond = prev 2 and next 2 feature maps
+python CUDA_VISIBLE_DEVICES=2 test_feature2face_model.py \
+            --name luoxiang_16min-custom-2prev-2next \
+            --dataset_names 'luoxiang_16min' \
+            --test_dataset_names 'luoxiang_16min' \
+            --dataroot ./data/luoxiang_16min/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --results_dir ./results
+
+#luoxiang_16min custom made with wandb cond = prev 2 and next 2 feature maps with shoulders
+python test_feature2face_model.py \
+            --name luoxiang_16min-shoulder-custom-2prev-2next \
+            --dataset_names 'luoxiang_16min' \
+            --test_dataset_names 'luoxiang_16min' \
+            --dataroot ./data/luoxiang_16min/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --results_dir ./results
+
+#kanghui custom made with wandb cond = prev 2 and next 2 feature maps with shoulders
+python test_feature2face_model.py \
+            --name kanghui-shoulder-custom-2prev-2next \
+            --dataset_names 'kanghui' \
+            --test_dataset_names 'kanghui' \
+            --dataroot ./data/kanghui/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode customtestdemo \
+            --results_dir ./results
+
+#kanghui custom made with wandb cond = prev 2 and next 2 feature maps with shoulders
+python test_feature2face_model_demo.py \
+            --name kanghui-shoulder-custom-2prev-2next \
+            --dataset_names 'kanghui' \
+            --test_dataset_names 'kanghui' \
+            --dataroot ./data/kanghui/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode customtestdemo \
+            --results_dir ./results
+
+#kanghui custom made with wandb cond = prev 2 and next 2 feature maps with shoulders
+python test_feature2face_model_video.py \
+            --name kanghui-shoulder-custom-2prev-2next \
+            --dataset_names 'kanghui_' \
+            --test_dataset_names 'kanghui_' \
+            --dataroot ./data/kanghui_/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --results_dir ./results
+
+#kanghui custom made with wandb cond = prev 2 and next 2 feature maps with shoulders
+CUDA_VISIBLE_DEVICES=1 python test_feature2face_model_video.py \
+            --name kanghui-shoulder-custom-2prev-2next-new1 \
+            --dataset_names 'kanghui' \
+            --test_dataset_names 'kanghui' \
+            --dataroot ./data/kanghui/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --results_dir ./results
+
+#full_body_1 shoulder custom made with wandb cond = prev 2 and next 2 feature maps
+CUDA_VISIBLE_DEVICES=1 python test_feature2face_model_video.py \
+            --name full-body-1-custom-2prev-2next \
+            --dataset_names 'full_body_1' \
+            --test_dataset_names 'full_body_1' \
+            --dataroot ./data/full_body_1/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custombody \
+            --results_dir ./results
+
+#full_body_2 shoulder custom made with wandb cond = prev 2 and next 2 feature maps
+CUDA_VISIBLE_DEVICES=1 python test_feature2face_model_video.py \
+            --name full-body-2-custom-2prev-2next \
+            --dataset_names 'full_body_2' \
+            --test_dataset_names 'full_body_2' \
+            --dataroot ./data/full_body_2/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custombody \
+            --results_dir ./results
+
+#kanghui custom made with wandb cond = prev 2 and next 2 feature maps with shoulders
+CUDA_VISIBLE_DEVICES=1 python test_feature2face_model_video.py \
+            --name kanghui-shoulder-custom-2prev-2next-new2 \
+            --dataset_names 'kanghui' \
+            --test_dataset_names 'kanghui' \
+            --dataroot ./data/kanghui/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --results_dir ./results
+
+#C0209 full body ViTPose custom made with wandb cond = prev 2 and next 2 feature maps
+CUDA_VISIBLE_DEVICES=1 python test_feature2face_model_video.py \
+            --name C0209-custom-2prev-2next-ViTPose \
+            --dataset_names 'C0209_cropped' \
+            --test_dataset_names 'C0209_cropped' \
+            --dataroot ./data/C0209_cropped/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custombody \
+            --results_dir ./results
+
+#C0209 full body OpenPose custom made with wandb cond = prev 2 and next 2 feature maps
+CUDA_VISIBLE_DEVICES=3 python test_feature2face_model_video.py \
+            --name C0209-custom-2prev-2next-OpenPose \
+            --dataset_names 'C0209_cropped' \
+            --test_dataset_names 'C0209_cropped' \
+            --dataroot ./data/C0209_cropped/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custombody \
+            --results_dir ./results
+
+#kanghui custom made with wandb cond = prev 2 and next 2 feature maps with shoulders
+CUDA_VISIBLE_DEVICES=2 python test_feature2face_model_video.py \
+            --name kanghui-shoulder-custom-2prev-2next-baseline \
+            --dataset_names 'kanghui' \
+            --test_dataset_names 'kanghui' \
+            --dataroot ./data/kanghui/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --results_dir ./results
+
+#kanghui custom made with wandb cond = prev 2 and next 2 nerf (rgb-face+depth) 
+CUDA_VISIBLE_DEVICES=2 python test_feature2face_model_video.py \
+            --name kanghui-shoulder-custom-2prev-2next-nerf-face \
+            --dataset_names 'kanghui' \
+            --test_dataset_names 'kanghui' \
+            --dataroot ./data/kanghui/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --results_dir ./results
+
+#jimmy upper body nerf (rgb-face+depth) custom made with wandb cond = prev 2 and next 2 nerf (rgb-upper-body+depth)
+CUDA_VISIBLE_DEVICES=2 python test_feature2face_model_video.py \
+            --name jimmy-upper-custom-2prev-2next-nerf-face \
+            --dataset_names 'jimmy_upper' \
+            --test_dataset_names 'jimmy_upper' \
+            --dataroot ./data/jimmy_upper/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --results_dir ./results
+
+#pingan-upper1 nerf (rgb-face+depth) custom made with wandb cond = prev 2 and next 2 nerf (rgb-upper-body+depth)
+python test_feature2face_model_video.py \
+            --name pingan-upper1-custom-2prev-2next-nerf-face \
+            --dataset_names 'pingan_upper1' \
+            --test_dataset_names 'pingan_upper1' \
+            --dataroot ./data/pingan_upper1/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#pingan-upper1 nerf (rgb-face+depth) custom made with wandb cond = prev 2 and next 2 nerf (rgb-upper-body+depth), no BG
+python test_feature2face_model_video.py \
+            --name pingan-upper1-nobg-custom-2prev-2next-nerf-face \
+            --dataset_names 'pingan_upper1' \
+            --test_dataset_names 'pingan_upper1' \
+            --dataroot ./data/pingan_upper1/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#pingan-upper1 nerf (rgb-face+depth+mesh) custom made with wandb cond = prev 2 and next 2 nerf (rgb-upper-body+depth+mesh)
+python test_feature2face_model_video.py \
+            --name pingan-upper1-mesh-custom-2prev-2next-nerf-face \
+            --dataset_names 'pingan_upper1' \
+            --test_dataset_names 'pingan_upper1' \
+            --dataroot ./data/pingan_upper1/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#pingan-upper1 nerf (rgb-face+depth+mesh) custom made with wandb cond = prev 2 and next 2 nerf (rgb-upper-body+depth+mesh), no BG
+python test_feature2face_model_video.py \
+            --name pingan-upper1-mesh-nobg-custom-2prev-2next-nerf-face \
+            --dataset_names 'pingan_upper1' \
+            --test_dataset_names 'pingan_upper1' \
+            --dataroot ./data/pingan_upper1/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (depth+mesh) custom made with wandb cond = prev 2 and next 2 nerf (depth+mesh), no BG
+CUDA_VISIBLE_DEVICES=5 python test_feature2face_model_video.py \
+            --name jhon-oliver-upper-mesh-depth-nobg-custom-2prev-2next-2 \
+            --dataset_names 'johnoliver_upper_2100' \
+            --train_dataset_names 'johnoliver_upper_2100' \
+            --dataroot ./data/johnoliver_upper_2100 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-hands (depth+mesh) custom made with wandb cond = prev 2 and next 2 nerf (depth+mesh), no BG
+CUDA_VISIBLE_DEVICES=6 python test_feature2face_model_video.py \
+            --name jhon-oliver-upper-hands-mesh-depth-nobg-custom-2prev-2next-2 \
+            --dataset_names 'johnoliver_hands_2100' \
+            --train_dataset_names 'johnoliver_hands_2100' \
+            --dataroot ./data/johnoliver_hands_2100 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper-hands (vertex-texture+mesh) custom made with wandb cond = prev 2 and next 2 nerf (depth+mesh), no BG
+CUDA_VISIBLE_DEVICES=0 python test_feature2face_model_video.py \
+            --name jhon-oliver-upper-hands-mesh-vertex_textures-nobg-custom-2prev-2next-2 \
+            --dataset_names 'johnoliver_hands_2100' \
+            --train_dataset_names 'johnoliver_hands_2100' \
+            --dataroot ./data/johnoliver_hands_2100 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (vertex-texture+mesh) custom made with wandb cond = prev 2 and next 2 nerf (depth+mesh), no BG
+CUDA_VISIBLE_DEVICES=5 python test_feature2face_model_video.py \
+            --name jhon-oliver-upper-mesh-vertex_textures-nobg-custom-2prev-2next-2 \
+            --dataset_names 'johnoliver_upper_2100' \
+            --train_dataset_names 'johnoliver_upper_2100' \
+            --dataroot ./data/johnoliver_upper_2100 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper-hands (uv-maps+mesh) custom made with wandb cond = prev 2 and next 2 nerf (depth+mesh), no BG
+CUDA_VISIBLE_DEVICES=6 python test_feature2face_model_video.py \
+            --name jhon-oliver-upper-hands-mesh-uv_maps-nobg-custom-2prev-2next-2 \
+            --dataset_names 'johnoliver_hands_2100' \
+            --train_dataset_names 'johnoliver_hands_2100' \
+            --dataroot ./data/johnoliver_hands_2100 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (uv-maps+mesh) custom made with wandb cond = prev 2 and next 2 nerf (depth+mesh), no BG
+CUDA_VISIBLE_DEVICES=7 python test_feature2face_model_video.py \
+            --name jhon-oliver-upper-mesh-uv_maps-nobg-custom-2prev-2next-2 \
+            --dataset_names 'johnoliver_upper_2100' \
+            --train_dataset_names 'johnoliver_upper_2100' \
+            --dataroot ./data/johnoliver_upper_2100 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (uv-maps) custom made with wandb cond = prev 2 and next 2 nerf (mesh), no BG
+CUDA_VISIBLE_DEVICES=7 python test_feature2face_model_video.py \
+            --name john-oliver-mesh-uv \
+            --dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --train_dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --dataroot ./data/john-oliver-SHOW1/JO_SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (uv-maps) custom made with wandb cond = prev 2 and next 2 nerf (mesh), no BG
+CUDA_VISIBLE_DEVICES=5 python test_feature2face_model_video.py \
+            --name john-oliver-mesh-uv \
+            --dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --train_dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --dataroot ./data/john-oliver-SHOW1/JO_SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (uv-maps) custom made with wandb cond = prev 2 and next 2 nerf (mesh), no BG
+CUDA_VISIBLE_DEVICES=7 python test_feature2face_model_video.py \
+            --name john-oliver-mesh-uv-depth-normal \
+            --dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --train_dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --dataroot ./data/john-oliver-SHOW1/JO_SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (uv-maps) custom made with wandb cond = prev 2 and next 2 nerf (mesh), BG
+CUDA_VISIBLE_DEVICES=2 python test_feature2face_model_video.py \
+            --name john-oliver-mesh-uv-depth-normal-bg \
+            --dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --train_dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --dataroot ./data/john-oliver-SHOW1/JO_SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (untextured) custom made with wandb cond = prev 2 and next 2 nerf (mesh), no BG
+CUDA_VISIBLE_DEVICES=4 python test_feature2face_model_video.py \
+            --name john-oliver-mesh-no-depth-normal \
+            --dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --train_dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --dataroot ./data/john-oliver-SHOW1/JO_SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+#jhon-oliver-upper (untextured) custom made with wandb cond = prev 2 and next 2 nerf (mesh), BG
+CUDA_VISIBLE_DEVICES=3 python test_feature2face_model_video.py \
+            --name john-oliver-mesh-no-depth-normal-bg \
+            --dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --train_dataset_names 'john-oliver-SHOW1/JO_SHOW1' \
+            --dataroot ./data/john-oliver-SHOW1/JO_SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+
+###################### inference
+#jhon-oliver-upper (uv-maps) custom made with wandb cond = prev 2 and next 2 nerf (mesh), no BG
+CUDA_VISIBLE_DEVICES=6 python test_feature2face_model_video.py \
+            --name john-oliver-mesh-uv-bg \
+            --dataset_names 'john-oliver-SHOW1/JO_SHOW1/' \
+            --train_dataset_names 'john-oliver-SHOW1/JO_SHOW1/' \
+            --dataroot ./data/john-oliver-SHOW1/JO_SHOW1/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0 --results_dir ./results
+
+# identity (untextured) custom made with wandb cond = prev 2 and next 2 nerf (mesh), BG
+CUDA_VISIBLE_DEVICES=7 python test_feature2face_model_video.py \
+            --name john-oliver-mesh-uv-bg \
+            --dataset_names 'john-oliver-SHOW1/audio2mesh/audio2' \
+            --train_dataset_names 'john-oliver-SHOW1/audio2mesh/audio2' \
+            --dataroot ./data/john-oliver-SHOW1/audio2mesh/audio2 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0  --results_dir ./results-audio2
+
+# identity (untextured) custom made with wandb cond = prev 2 and next 2 nerf (mesh), BG
+CUDA_VISIBLE_DEVICES=7 python test_feature2face_model_video.py \
+            --name conan-mesh-uv-bg \
+            --dataset_names 'conan-SHOW1/audio2mesh/audio2' \
+            --train_dataset_names 'conan-SHOW1/audio2mesh/audio2' \
+            --dataroot ./data/conan-SHOW1/audio2mesh/audio2 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0  --results_dir ./results-audio2 --load_epoch 10
+
+# identity (textured) custom made with wandb cond = prev 2 and next 2 nerf (mesh), BG
+CUDA_VISIBLE_DEVICES=5 python test_feature2face_model_video.py \
+            --name seth-mesh-uv-bg \
+            --dataset_names 'seth-SHOW1/audio2mesh/audio1' \
+            --train_dataset_names 'seth-SHOW1/audio2mesh/audio1' \
+            --dataroot ./data/seth-SHOW1/audio2mesh/audio1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0 --results_dir ./results-audio1 --load_epoch 10
+
+# identity (textured) custom made with wandb no cond (mesh), BG
+CUDA_VISIBLE_DEVICES=7 python test_feature2face_model_video.py \
+            --name conan-mesh-uv-depth-normal-bg-no-cond-2 \
+            --dataset_names 'conan-SHOW1' \
+            --train_dataset_names 'conan-SHOW1' \
+            --dataroot ./data/conan-SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+# identity (textured) custom made with wandb cond = prev 2 and next 2 nerf (mesh), BG
+CUDA_VISIBLE_DEVICES=4 python test_feature2face_model_video.py \
+            --name seth-mesh-uv-depth-normal-bg \
+            --dataset_names 'seth-SHOW1/' \
+            --train_dataset_names 'seth-SHOW1/' \
+            --dataroot ./data/seth-SHOW1/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0
+
+# baseline custom made with wandb cond = prev 2 and next 2 nerf (keypoint), BG
+CUDA_VISIBLE_DEVICES=4 python test_feature2face_model_video.py \
+            --name seth-baseline \
+            --dataset_names './data/chemistry-SHOW1/' \
+            --train_dataset_names './data/chemistry-SHOW1/' \
+            --dataroot ./data/chemistry-SHOW1/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --gpu_ids 0 --results_dir ./results
+
+# baseline custom made with wandb cond = prev 2 and next 2 nerf (keypoint), BG
+CUDA_VISIBLE_DEVICES=4 python test_feature2face_model_video.py \
+            --name chemistry-baseline \
+            --dataset_names './data/chemistry-SHOW1/' \
+            --train_dataset_names './data/chemistry-SHOW1/' \
+            --dataroot ./data/chemistry-SHOW1/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --gpu_ids 0
+
+# baseline custom made with wandb cond = prev 2 and next 2 nerf (keypoint), BG
+CUDA_VISIBLE_DEVICES=4 python test_feature2face_model_video.py \
+            --name chemistry-baseline \
+            --dataset_names './data/chemistry-SHOW1/' \
+            --train_dataset_names './data/chemistry-SHOW1/' \
+            --dataroot ./data/chemistry-SHOW1/ \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom \
+            --gpu_ids 0
+
+# test custom3d, previous-next, textured-meshes, depth-normal, no GAN
+CUDA_VISIBLE_DEVICES=4 python test_feature2face_model_video.py \
+            --name john-oliver--prev_next-textured-depth_normal-no_gan_loss \
+            --dataset_names '/grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1' \
+            --train_dataset_names '/grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1' \
+            --dataroot /grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --no_gan_loss \
+            --gpu_ids 0
+
+# test custom3d, previous-next, textured-meshes, depth-normal, no L1 loss
+CUDA_VISIBLE_DEVICES=5 python test_feature2face_model_video.py \
+            --name john-oliver--prev_next-textured-depth_normal-no_l1_loss \
+            --dataset_names '/grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1' \
+            --train_dataset_names '/grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1' \
+            --dataroot /grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1 \
+            --isH5 0 \
+            --checkpoints_dir ./checkpoints \
+            --dataset_mode custom3d \
+            --no_l1_loss \
+            --gpu_ids 0
+
+# new ablation custom3d, previous-next, untextured-meshes, input-image
+CUDA_VISIBLE_DEVICES=0 python test_feature2face_model_video.py \
+            --name john-oliver--prev_next-untextured-image \
+            --dataset_names '/grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1' \
+            --train_dataset_names '/grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1' \
+            --dataroot /grogu/user/amahapat/LiveSpeechPortraits/data/john-oliver-SHOW1 \
+            --isH5 0 \
+            --dataset_mode custom3d \
+            --gpu_ids 0 \
+            --checkpoints_dir /compute/grogu-1-29/amahapat/LiveSpeechPortraits/checkpoints/
