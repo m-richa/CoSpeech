@@ -23,10 +23,10 @@ To install and set up the environment for this project, follow these steps:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ECCV-Project.git
+git clone 
 
 # Navigate into the repository directory
-cd ECCV-Project
+cd CoSpeech
 
 # Install the required dependencies
 pip install -r requirements.txt
